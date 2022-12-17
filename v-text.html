@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-text</title>
+</head>
+
+<body>
+    <!-- v-text作用:设置标签的内容textContent
+    默认写法会替换全部内容，使用插值表达式{{}}可以替换指定内容 -->
+    <div id="app">
+        <h2 v-text="message">深圳</h2>
+        <h2 v-text="message + 'i'">深圳</h2>
+
+        <h2>{{message + 'i'}}深圳</h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+
+    </script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: '黑马程序员'
+            }
+        })
+    </script>
+</body>
+
+</html>

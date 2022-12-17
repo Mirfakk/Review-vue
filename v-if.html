@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-show</title>
+</head>
+
+<body>
+    <!-- v-if原理是添加和删除元素 -->
+    <div id="app">
+        <button @click="change">切换图片状态</button>
+        <button @click="add">增加</button>
+        <button @click="sub">减少</button>
+        <img src="./01.webp" v-if="isShow">
+        <h2 v-if="num>35">温度大于35，太热了</h2>
+    </div>
+    <!-- 开发环境版本，包含有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+
+    </script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                num: 33
+            },
+            methods: {
+                change: function () {
+                    this.isShow = !this.isShow;//取反
+                },
+                add: function () {
+                    this.num++;
+                    console.log(this.num);
+                },
+                sub: function () {
+                    this.num--;
+                    console.log(this.num);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

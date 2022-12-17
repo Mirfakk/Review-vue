@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>天知道</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+</head>
+
+<body>
+    <div class="wrap" id="app">
+        <div class="search_form">
+            <div class="logo"><img src="img/logo.png" alt="logo" /></div>
+            <div class="form_group">
+                <input type="text" v-model="city" @keyup.enter="searchWeather" class="input_txt"
+                    placeholder="请输入查询的天气" />
+                <button class="input_sub">
+                    搜 索
+                </button>
+            </div>
+            <div class="hotkey">
+                <a href="javascript:;" @click="change('北京')">北京</a>
+                <a href="javascript:;" @click="change('上海')">上海</a>
+                <a href="javascript:;" @click="change('广州')">广州</a>
+                <a href="javascript:;" @click="change('深圳')">深圳</a>
+            </div>
+        </div>
+        <ul class="weather_list">
+            <li>
+                <div class="info_type">
+                    <span class="iconfont"></span>
+                </div>
+                <div class="info_temp" v-show="isFalse">
+                    <p>{{weatherList.address}}</p>
+                    <p>城市编号：{{weatherList.cityCode}}</p>
+                    <p>气温：{{weatherList.temp}}</p>
+                    <p>天气：{{weatherList.weather}}</p>
+                    <p>风向：{{weatherList.windDirection}}</p>
+                    <p>风力：{{weatherList.windPower}}</p>
+                    <p>温度：{{weatherList.humidity}}</p>
+                    <p>发布时间：{{weatherList.reportTime}}</p>
+                </div>
+
+                <div class="info_date"><span></span></div>
+            </li>
+        </ul>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 官网提供的 axios 在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- 自己的js -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on</title>
+</head>
+
+<body>
+    <!-- v-on:为元素绑定事件,事件写在methods中-->
+    <div id="app">
+        <!-- 可以简写为@ -->
+        <button v-on:click="fn">按钮</button>
+        <button @click="TonightFood">今晚菜单</button>
+        <!-- dblclick双击事件 -->
+        <input type="button" value="v-on指令" @dblclick="fn">
+        <input type="button" value="换菜单" @dblclick="changeFood">
+        <h2 @click="changeFood">{{food}}</h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+
+    </script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                food: "腊肉焖饭"
+            },
+            methods: {
+                fn: function () {
+                    alert("鼠标点击了");
+                },
+                TonightFood: function () {
+                    console.log(this.food);
+                },
+                changeFood: function () {
+                    this.food = '牛肉火锅';
+                    console.log(this.food);
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>

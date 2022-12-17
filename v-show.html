@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-show</title>
+</head>
+
+<body>
+    <!-- v-show原理是修改元素的display属性实现显示隐藏，指令后的内容最终会解释为布尔值 -->
+    <div id="app">
+        <button @click="change">切换图片状态</button>
+        <button @click="add">增加</button>
+        <button @click="sub">减少</button>
+        <img src="./01.webp" v-show="isShow">
+        <img src="./01.webp" v-show="age>=3">
+    </div>
+    <!-- 开发环境版本，包含有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+
+    </script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                age: 1
+            },
+            methods: {
+                change: function () {
+                    this.isShow = !this.isShow;//取反
+                },
+                add: function () {
+                    this.age++;
+                    console.log(this.age);
+                },
+                sub: function () {
+                    this.age--;
+                    console.log(this.age);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

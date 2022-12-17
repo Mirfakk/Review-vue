@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+</head>
+
+<body>
+    <!-- v-for item in arr,arr是要循环的数组，item是每一项的名字，可以修改 -->
+    <div id="app">
+        <button @click="add">新增菜单</button>
+        <button @click="sub">移除最左侧菜单</button>
+        <ul>
+            <!-- 这里的item就是遍历arr数组中的每一项 
+            可以添加索引 (item,index)-->
+            <li v-for="(item,index) in arr">
+                {{index + 1}}:黑马程序员校区：{{item}}
+            </li>
+        </ul>
+        <h2 v-for="(item,index) in vegetables">
+            {{index + 1 }} {{item.name}} {{item.price}}
+        </h2>
+    </div>
+    <!-- 开发环境版本，包含有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+
+    </script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                arr: ["北京", "上海", "广州", "深圳"],
+                vegetables: [
+                    { name: '腊肉炒饭', price: 18 },
+                    { name: '麦辣鸡腿堡', price: 15 }
+                ]
+            },
+            methods: {
+                add: function () {
+                    //添加元素
+                    this.vegetables.push({ name: '凉拌牛肉', price: 28 })
+                },
+                sub: function () {
+                    //移除最左边的元素
+                    this.vegetables.shift();
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

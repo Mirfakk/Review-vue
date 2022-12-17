@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+    <style>
+        .onclick {
+            box-sizing: border-box;
+            border: 2px red solid;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- -->
+    <div id="app">
+        <img v-bind:src="imgSrc" alt="">
+        <!-- 给第二张图片添加点击事件，点击了就给添加类，再点则删除类 -->
+        <img :src="imgSrc" alt="" :title="imgTitle + '!!!'" :class="{onclick:borderShow}" @click="add">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+
+    </script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: '黑马程序员',
+                imgSrc: './01.webp',
+                imgTitle: '深圳技术大学',
+                borderShow: false
+            },
+            methods: {
+                add: function () {
+                    this.borderShow = !this.borderShow;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
